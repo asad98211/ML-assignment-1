@@ -16,9 +16,14 @@ for iter = 1:num_iters
     % Hint: While debugging, it can be useful to print out the values
     %       of the cost function (computeCost) and gradient here.
     %
-
-
-
+	disp(theta);
+	disp(computeCost(X,y,theta));
+	temp=[alpha*[sum([computeCost(X,y,theta)*X])/m]]';
+	disp('cal:');
+	disp(temp);
+	theta=theta-temp;
+	
+	
 
 
 
