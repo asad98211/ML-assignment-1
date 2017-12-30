@@ -16,25 +16,22 @@ for iter = 1:num_iters
     % Hint: While debugging, it can be useful to print out the values
     %       of the cost function (computeCost) and gradient here.
     %
-	%disp(theta);
+	% This is batch style gradientDescent
+	%disp('Cost:');
 	%disp(computeCost(X,y,theta));
-	%temp=[alpha*[[[X*theta] -y]'*X] /m]';
-	%disp('cal:');
-	%disp(temp);
-	%theta=theta-temp;
-	disp('Cost:');
-	disp(computeCost(X,y,theta));
-	hyp=[X*theta];
-	temp=zeros(2,1);
-	for j=1:1:2
-		
-		for i=1:1:m
-			temp(j)+= (hyp(i)-y(i))*X(i,j);
-		end	
-		theta(j)=theta(j)-alpha*1/m*temp(j);
+	%hyp=[X*theta];
+	%temp=zeros(2,1)=;
+	%for j=1:1:2
+	%	
+	%	for i=1:1:m
+	%		temp(j)+= (hyp(i)-y(i))*X(i,j);
+	%	end	
+	%	theta(j)=theta(j)-alpha*1/m*temp(j);
 		%disp(theta(j));
-	end	
-
+	%end	
+	% Using linear algebra
+	theta=theta-alpha*1/m*[[[X*theta] - y]'*X]';
+	
     % ============================================================
 
     % Save the cost J in every iteration    
